@@ -5,7 +5,7 @@ __author__ = "730765505"
 
 def input_guess(secret_word_len: int) -> str:
     i: int = 0
-    guess = input(f"Enter a {secret_word_len} letter word: ")
+    guess = input(f"Enter a {secret_word_len} character word: ")
     while i == 0:
         if len(guess) != secret_word_len:
             guess = input(f"That wasn't {secret_word_len} chars! Try again: ")
@@ -48,12 +48,15 @@ def emojified(guess: str, secret: str) -> str:
 def main(secret: str) -> None:
     """The entrypoint of the program and main game loop."""
     turn: int = 1
+    win_str = ""
+    for i in range(len(secret)):
+        win_str += "\U0001F7E9"
     while turn <= 6:
         print(f"=== Turn {turn}/6 ===")
         guess = input_guess(secret_word_len=len(secret))
         response: str = emojified(guess=guess, secret=secret)
         print(response)
-        if response == "\U0001F7E9\U0001F7E9\U0001F7E9\U0001F7E9\U0001F7E9":
+        if response == win_str:
             print(f"You won in {turn}/6 turns!")
             turn = 9
         turn += 1
