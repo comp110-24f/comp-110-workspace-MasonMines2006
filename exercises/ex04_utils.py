@@ -5,16 +5,18 @@ __author__ = "730765505"
 
 def all(list_1: list[int], num: int) -> bool:
     i: int = 0
-    condition = False
+    condition = True
+    if list_1 == []:
+        condition = False
     while i < len(list_1):
-        if list_1[i] == num:
-            condition = True
+        if list_1[i] != num:
+            condition = False
         i += 1
     return condition
 
 
 def max(list_1: list[int]) -> int:
-    max_val: int = 0
+    max_val: int = -999999
     i: int = 0
     while i < len(list_1):
         if list_1[i] > max_val:
@@ -45,4 +47,4 @@ def extend(list_1: list[int], list_2: list[int]) -> None:
 
 
 if __name__ == "__main__":
-    extend([1, 2, 3, 4, 5], [1, 2, 3, 4, 5])
+    print(all([], 1))
