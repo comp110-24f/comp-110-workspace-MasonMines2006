@@ -1,9 +1,9 @@
+from utils import only_evens, sub, add_at_index
+import pytest
+
 """Test code doc for ex05"""
 
 __author__ = "730765505"
-
-from utils import only_evens, sub, add_at_index
-import pytest
 
 
 def only_evens_1_test() -> None:
@@ -56,7 +56,7 @@ def add_at_index_1_test() -> None:
 
 def add_at_index_2_test() -> None:
     list_1 = [1]
-    add_at_index(list_1, 1, 2)
+    add_at_index(list_1, 2, 1)
     assert list_1 == [1, 2]
 
 
@@ -64,7 +64,4 @@ def add_at_index_3_test() -> None:
     """Test that add_at_index raises an IndexError for an invalid index."""
     list_1 = []
     with pytest.raises(IndexError):
-        add_at_index(list_1, 4, 1)
-
-
-add_at_index_3_test()
+        add_at_index(list_1, 1, 1)

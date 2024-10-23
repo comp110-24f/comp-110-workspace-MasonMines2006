@@ -19,7 +19,7 @@ def sub(list: list[int], start: int, end: int) -> list[int]:
     return f_list
 
 
-def add_at_index(list: list[int], index: int, elem: int) -> None:
+def add_at_index(list: list[int], elem: int, index: int) -> None:
     if index > len(list):
         raise IndexError("Index is out of bounds for the input list")
     temp_list = []
