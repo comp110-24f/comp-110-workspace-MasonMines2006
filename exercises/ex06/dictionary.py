@@ -17,7 +17,7 @@ def invert(dict_1: dict[str, str]) -> dict[str, str]:
     return dict_2
 
 
-def favorite_colors(init_dict: dict[str, str]) -> str:
+def favorite_color(init_dict: dict[str, str]) -> str:
     final_dict: dict[str, int] = {}
     for elem in init_dict:
         if elem not in final_dict:
@@ -54,7 +54,7 @@ def alphabetizer(list_1: list[str]) -> dict[str, list[str]]:
     return final_dict
 
 
-def update_attendace(attendance: dict[str, list[str]], day: str, name: str) -> None:
+def update_attendance(attendance: dict[str, list[str]], day: str, name: str) -> None:
     if day not in attendance:
         attendance[day] = []
     attendance[day].append(name)
@@ -66,7 +66,7 @@ test_day: str = "Monday"
 test_name: str = "Brian"
 test_attendance_log: dict = {"Monday": ["Vrinda", "Kaleb"], "Tuesday": ["Alyssa"]}
 
-update_attendace(test_attendance_log, test_day, test_name)
+update_attendance(test_attendance_log, test_day, test_name)
 print(test_attendance_log)
 
 # python exercises/ex06/dictionary.py
