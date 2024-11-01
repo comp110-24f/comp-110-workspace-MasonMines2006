@@ -1,7 +1,7 @@
 """File to define River class."""
 
-from ex07.fish import Fish
-from ex07.bear import Bear
+from fish import Fish
+from bear import Bear
 
 
 class River:
@@ -37,7 +37,9 @@ class River:
         return None
 
     def view_river(self):
-        return None
+        print(f"~~~ Day {self.day}: ~~~")
+        print(f"Fish Population: {len(self.fish)}")
+        print(f"Bear Population: {len(self.bears)}")
 
     def one_river_day(self):
         """Simulate one day of life in the river"""
