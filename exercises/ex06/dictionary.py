@@ -19,16 +19,18 @@ def invert(dict_1: dict[str, str]) -> dict[str, str]:
 
 def favorite_color(init_dict: dict[str, str]) -> str:
     final_dict: dict[str, int] = {}
-    for elem in init_dict:
-        if elem not in final_dict:
-            final_dict[elem] = 1
+    for color in init_dict.values():
+        if color not in final_dict:
+            final_dict[color] = 1
         else:
-            final_dict[elem] += 1
-    max_val = 0
-    max_elem = ""
-    for elem in final_dict:
-        if final_dict[elem] > max_val:
-            max_elem = init_dict[elem]
+            final_dict[color] += 1
+
+    max_val: int = 0
+    max_elem: str = ""
+    for color, count in final_dict.items():
+        if count > max_val:
+            max_val = count
+            max_elem = color
     return max_elem
 
 
@@ -45,7 +47,7 @@ def count(list_1: list[str]) -> dict[str, int]:
 def alphabetizer(list_1: list[str]) -> dict[str, list[str]]:
     final_dict: dict[str, list[str]] = {}
     for elem in list_1:
-        first_letter = elem[0].lower()
+        first_letter: str = elem[0].lower()
         if first_letter not in final_dict:
             final_dict[first_letter] = []
             final_dict[first_letter].append(elem)
@@ -57,16 +59,5 @@ def alphabetizer(list_1: list[str]) -> dict[str, list[str]]:
 def update_attendance(attendance: dict[str, list[str]], day: str, name: str) -> None:
     if day not in attendance:
         attendance[day] = []
-    attendance[day].append(name)
-
-
-test_dict: dict[str, str] = {"Marc": "yellow", "Ezri": "blue", "Kris": "blue"}
-test_list: list[str] = ["Marc", "yellow", "Ezri", "blue", "Kris", "blue"]
-test_day: str = "Monday"
-test_name: str = "Brian"
-test_attendance_log: dict = {"Monday": ["Vrinda", "Kaleb"], "Tuesday": ["Alyssa"]}
-
-update_attendance(test_attendance_log, test_day, test_name)
-print(test_attendance_log)
-
-# python exercises/ex06/dictionary.py
+    if name not in attendance[day]:
+        attendance[day].append(name)
