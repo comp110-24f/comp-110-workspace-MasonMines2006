@@ -11,4 +11,5 @@ class Bear:
         self.hunger_score = 0
 
     def one_day(self):
+        self.age += 1
         return None
