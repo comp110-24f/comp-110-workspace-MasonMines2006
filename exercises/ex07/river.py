@@ -34,17 +34,35 @@ class River:
         self.bears = new_bears
         return None
 
+    def remove_fish(self, amount: int):
+        for i in range(amount):
+            if self.fish is not []:
+                self.fish.pop(0)
+
     def bears_eating(self):
-        return None
+        for bear in self.bears:
+            if len(self.fish) >= 5:
+                self.remove_fish(3)
+                bear.eat(3)
 
     def check_hunger(self):
-        return None
+        new_bears: list[Bear] = []
+        for bear in self.bears:
+            if bear.hunger_score >= 0:
+                new_bears.append(bear)
+        self.bears = new_bears
 
     def repopulate_fish(self):
-        return None
+        num_fish: int = len(self.fish) // 2
+        for i in range(num_fish * 4):
+            baby_fish: Fish = Fish()
+            self.fish.append(baby_fish)
 
     def repopulate_bears(self):
-        return None
+        num_bears: int = len(self.bears) // 2
+        for i in range(num_bears):
+            baby_bear: Bear = Bear()
+            self.bears.append(baby_bear)
 
     def view_river(self):
         print(f"~~~ Day {self.day}: ~~~")
